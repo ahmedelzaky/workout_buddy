@@ -1,8 +1,7 @@
-const workoutModel = require("../models/workout.model");
 const WorkoutModel = require("../models/workout.model");
 
 const getAllWorkout = async (req, res) => {
-  const workouts = await workoutModel.find().exec();
+  const workouts = await WorkoutModel.find().exec();
   res.json(workouts);
 };
 
@@ -48,7 +47,6 @@ const updateWorkout = async (req, res) => {
     res.status(400).json({ success: false, message: err.message });
   }
 };
-
 
 const deleteWorkout = async (req, res) => {
   const { id } = req.params;
