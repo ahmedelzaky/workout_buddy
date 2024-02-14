@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const workoutRouter = require("./routes/workout.route");
 
 const app = express();
@@ -11,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 app.use(morgan("dev"));
 app.use(express.json());
-
+app.use(cors());
 app.use("/api/workouts", workoutRouter);
 
 mongoose
