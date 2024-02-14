@@ -1,7 +1,7 @@
 const WorkoutModel = require("../models/workout.model");
 
 const getAllWorkout = async (req, res) => {
-  const workouts = await WorkoutModel.find().exec();
+  const workouts = await WorkoutModel.find().sort({ createdAt: -1 }).exec();
   res.json(workouts);
 };
 
@@ -51,8 +51,14 @@ const updateWorkout = async (req, res) => {
 const deleteWorkout = async (req, res) => {
   const { id } = req.params;
   try {
-    await WorkoutModel.findByIdAndDelete(id).exec();
-    res.json({ success: true });
+    const workout = await WorkoutModel.findByIdAndDelete(id).exec();
+    if (!workout) {
+      res
+        .status(404)
+        .json({ success: false, message: "There is no Workout with this id" });
+    } else {
+      res.json({ success: true });
+    }
   } catch (err) {
     res.status(400).json({ success: false, message: err.message });
   }
