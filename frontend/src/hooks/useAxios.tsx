@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useAxios = <T,>(url: string, time: number) => {
+const useAxios = <T,>(url: string, time?: number) => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState("");
   const [isPending, setIsPending] = useState(true);
@@ -19,6 +19,7 @@ const useAxios = <T,>(url: string, time: number) => {
       } catch (error) {
         setError((error as Error).message);
         setIsPending(false);
+        console.log(error);
       }
     };
     fetchData();

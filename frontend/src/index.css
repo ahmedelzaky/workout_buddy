@@ -58,7 +58,15 @@ header a {
   margin: 20px auto;
   padding: 20px;
   position: relative;
+  background-color: #343434;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  transition: 1s;
+}
+
+.workout-details:hover {
+  box-shadow: 3px 3px 8px 3px rgba(255, 255, 255, 0.1);
+  scale: 1.1;
+  transform: translateX(30px);
 }
 
 .workout-details h4 {
@@ -70,7 +78,6 @@ header a {
 .workout-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
 }
 
 .workout-details span {
