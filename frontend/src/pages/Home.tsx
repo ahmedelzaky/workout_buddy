@@ -15,7 +15,7 @@ function Home() {
     if (data) {
       dispatch(setWorkouts(data));
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   return (
     <div className="home">

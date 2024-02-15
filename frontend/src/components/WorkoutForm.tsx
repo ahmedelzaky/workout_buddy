@@ -52,6 +52,7 @@ function WorkoutForm() {
       <input
         type="text"
         name="title"
+        required
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -60,12 +61,14 @@ function WorkoutForm() {
         type="number"
         name="load"
         value={load}
+        required
         onChange={(e) => setLoad(+e.target.value)}
       />
       <label> Excersize Title: </label>
       <input
         type="number"
         name="reps"
+        required
         value={reps}
         onChange={(e) => setReps(+e.target.value)}
       />

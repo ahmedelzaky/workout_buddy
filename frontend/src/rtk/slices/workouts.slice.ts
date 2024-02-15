@@ -14,9 +14,13 @@ export const workoutsSlice = createSlice({
     createWorkout: (state, action: PayloadAction<workoutModel>) => {
       return [action.payload, ...state];
     },
+    deleteWorkout: (state, action: PayloadAction<string>) => {
+      return state.filter((ele) => ele._id != action.payload);
+    },
   },
 });
 
-export const { setWorkouts, createWorkout } = workoutsSlice.actions;
+export const { setWorkouts, createWorkout, deleteWorkout } =
+  workoutsSlice.actions;
 
 export default workoutsSlice.reducer;

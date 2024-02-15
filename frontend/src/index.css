@@ -23,7 +23,6 @@
 
 header {
   background: #343434;
-
 }
 
 header .container {
@@ -65,8 +64,8 @@ header a {
 
 .workout-details:hover {
   box-shadow: 3px 3px 8px 3px rgba(255, 255, 255, 0.1);
-  scale: 1.1;
-  transform: translateX(30px);
+  /* scale: 1.1;
+  transform: translateX(30px); */
 }
 
 .workout-details h4 {
@@ -135,4 +134,10 @@ div.error {
 
 input.error {
   border: 1px solid var(--error);
+}
+
+@media (max-width:991px) {
+  .home {
+    grid-template-columns: 4fr;
+  }
 }
