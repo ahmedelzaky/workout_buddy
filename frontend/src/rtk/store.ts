@@ -5,7 +5,7 @@ import authSlice from "./slices/auth.slice";
 const store = configureStore({
   reducer: {
     workouts: workoutsSlice,
-    auth: authSlice,
+    user: authSlice,
   },
 });
 

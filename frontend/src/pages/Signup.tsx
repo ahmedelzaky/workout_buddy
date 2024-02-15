@@ -1,50 +1,7 @@
-import { useState } from "react";
-import useAuth from "../hooks/useAuth";
+import AuthForm from "../components/AuthForm";
 
 function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { auth, error, isPending } = useAuth();
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    await auth(email, password, "signup");
-  };
-
-  return (
-    <form className="signup" onSubmit={handleSubmit}>
-      <h3>Sign up</h3>
-
-      <label htmlFor="email">Email:</label>
-      <input
-        name="email"
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <label htmlFor="email">Password:</label>
-      <input
-        name="password"
-        type="password"
-        required
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <button disabled={isPending} type="submit">
-        {" "}
-        Sign Up{" "}
-      </button>
-      {error && (
-        <div style={{ textAlign: "center" }} className="error">
-          {error}
-        </div>
-      )}
-    </form>
-  );
+  return <AuthForm title="Sign Up" action="signup" />;
 }
 
 export default Signup;
