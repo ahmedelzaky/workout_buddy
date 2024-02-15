@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const workoutRouter = require("./routes/workout.route");
+const userRouter = require("./routes/user.route");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
 app.use("/api/workouts", workoutRouter);
+app.use("/api/", userRouter);
 
 mongoose
   .connect(process.env.MONGO_URL)
