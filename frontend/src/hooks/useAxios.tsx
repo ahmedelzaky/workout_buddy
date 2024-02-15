@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const useAxios = <T,>(url: string, time?: number) => {
   const [data, setData] = useState<T | null>(null);
@@ -17,7 +17,7 @@ const useAxios = <T,>(url: string, time?: number) => {
         setIsPending(false);
         setError("");
       } catch (error) {
-        setError((error as Error).message);
+        setError((error as AxiosError).message);
         setIsPending(false);
         console.log(error);
       }

@@ -23,6 +23,7 @@
 
 header {
   background: #343434;
+  padding: 20px;
 }
 
 header .container {
@@ -60,6 +61,7 @@ nav button {
 nav button {
   color: var(--primary);
   border: 2px solid var(--primary);
+  background-color: transparent;
   padding: 6px 10px;
   border-radius: 4px;
   font-family: "Poppins";
@@ -174,4 +176,8 @@ form.login {
   border-radius: 4px;
   background: #343434;
   box-shadow: 2px 2px 5px 2px rgba(255, 255, 255, 0.1);
+
+  h3 {
+    margin-bottom: 10px;
+  }
 }

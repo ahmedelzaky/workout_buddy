@@ -1,12 +1,14 @@
 import { useState } from "react";
+import useAuth from "../hooks/useAuth";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { auth, error, isPending } = useAuth("login");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(email, password);
+    await auth(email, password);
   };
 
   return (
@@ -31,7 +33,14 @@ function Login() {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <button type="submit">Log In</button>
+      <button disabled={isPending} type="submit">
+        Log In
+      </button>
+      {error && (
+        <div style={{ textAlign: "center" }} className="error">
+          {error}
+        </div>
+      )}
     </form>
   );
 }
