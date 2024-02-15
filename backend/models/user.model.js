@@ -30,9 +30,27 @@ userSchema.statics.signup = async function (email, password) {
   if (exists) {
     throw Error("Email already in use");
   }
-  password = await bcrypt.hash(password, process.env.SALT);
+
+  const salt = await bcrypt.genSalt(10);
+  password = await bcrypt.hash(password, salt);
 
   const user = await this.create({ email, password });
+
+  return user;
+};
+
+userSchema.statics.login = async function (email, password) {
+  if (!email || !password) throw Error("All field must be filled");
+
+  const user = await this.findOne({ email });
+
+  if (!user) {
+    throw Error("Incorrect email");
+  }
+
+  if (!bcrypt.compareSync(password, user.password)) {
+    throw Error("Incorrect password");
+  }
 
   return user;
 };
