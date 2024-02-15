@@ -4,11 +4,11 @@ import useAuth from "../hooks/useAuth";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { auth, error, isPending } = useAuth("login");
+  const { auth, error, isPending } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await auth(email, password);
+    await auth(email, password, "login");
   };
 
   return (

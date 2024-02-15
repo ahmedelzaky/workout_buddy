@@ -8,12 +8,16 @@ export type User = {
   token: string;
 };
 
-const useAuth = (action?: "login" | "signup") => {
+const useAuth = () => {
   const dispatch = useAppDispatch();
   const [error, setError] = useState("");
   const [isPending, setIsPending] = useState(false);
 
-  const auth = async (email: string, password: string) => {
+  const auth = async (
+    email: string,
+    password: string,
+    action: "login" | "signup"
+  ) => {
     setIsPending(true);
     setError("");
     try {
