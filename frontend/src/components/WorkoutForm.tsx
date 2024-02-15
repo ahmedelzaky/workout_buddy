@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import workoutModel from "../models/wokout.mode";
+import { useAppDispatch } from "../hooks/AppRedux";
+import { createWorkout } from "../rtk/slices/workouts.slice";
 
 type addResponse = {
   success: boolean;
@@ -9,6 +11,7 @@ type addResponse = {
 };
 
 function WorkoutForm() {
+  const dispatch = useAppDispatch();
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState<number | string>("");
   const [reps, setReps] = useState<number | string>("");
@@ -27,7 +30,7 @@ function WorkoutForm() {
           reps,
         }
       );
-      console.log(`new workout added`, res.data.workout);
+      dispatch(createWorkout(res.data.workout));
       setTitle("");
       setReps("");
       setLoad("");
