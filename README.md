@@ -33,9 +33,10 @@ npm run start # (backend)
 
 ## Additional Resources
 
-- **React**: https://react.dev/ Redux: https://redux.js.org/
-- **Node.js**: https://nodejs.org/en
-- **Express.js**: https://expressjs.com/
-- **MongoDB**: https://www.mongodb.com/
-- **Mongoose**: https://www.mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/
-- **JWT**: https://jwt.io/
+- **React**: <https://react.dev/>
+- **Redux**: <https://redux.js.org/>
+- **Node.js**: <https://nodejs.org/en>
+- **Express.js**: <https://expressjs.com/>
+- **MongoDB**: <https://www.mongodb.com/>
+- **Mongoose**: <https://www.mongodb.com/developer/languages/javascript/getting-started-with-mongodb-and-mongoose/>
+- **JWT**: <https://jwt.io/>
