@@ -1,8 +1,9 @@
 import { useState } from "react";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import workoutModel from "../models/wokout.mode";
 import { useAppDispatch } from "../hooks/AppRedux";
 import { createWorkout } from "../rtk/slices/workouts.slice";
+import useAxios from "../hooks/useAxios";
 
 type addResponse = {
   success: boolean;
@@ -17,6 +18,7 @@ function WorkoutForm() {
   const [reps, setReps] = useState<number | string>("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
+  const { axios } = useAxios();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -1,8 +1,8 @@
-import axios from "axios";
 import workoutModel from "../models/wokout.mode";
 import { useAppDispatch } from "../hooks/AppRedux";
 import { deleteWorkout } from "../rtk/slices/workouts.slice";
 import { formatDistanceToNow } from "date-fns";
+import useAxios from "../hooks/useAxios";
 
 type WorkoutsDetailsProps = {
   workout: workoutModel;
@@ -10,6 +10,7 @@ type WorkoutsDetailsProps = {
 
 function WorkoutsDetails({ workout }: WorkoutsDetailsProps) {
   const dispatch = useAppDispatch();
+  const { axios } = useAxios();
 
   const handleDelete = async () => {
     try {

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "../../hooks/useAuth";
 
-const initialState = JSON.parse(localStorage.getItem("user") || "{}");
+const initialState = JSON.parse(localStorage.getItem("user") || "null");
 
 export const authSlice = createSlice({
   name: "auth",
