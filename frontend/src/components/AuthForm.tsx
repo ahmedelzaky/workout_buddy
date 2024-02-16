@@ -29,7 +29,7 @@ function AuthForm({ title, action }: AuthFormProps) {
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <label htmlFor="email">Password:</label>
+      <label htmlFor="password">Password:</label>
       <input
         name="password"
         type="password"
