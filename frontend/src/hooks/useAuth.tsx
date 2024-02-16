@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useAppDispatch } from "./AppRedux";
 import { login, logout } from "../rtk/slices/auth.slice";
 import { useNavigate } from "react-router-dom";
+import { setWorkouts } from "../rtk/slices/workouts.slice";
 
 export type User = {
   email: string;
@@ -49,6 +50,7 @@ const useAuth = () => {
   const removeUser = () => {
     localStorage.removeItem("user");
     dispatch(logout());
+    dispatch(setWorkouts([]));
     navigate("/login");
   };
 

@@ -1,13 +1,15 @@
 const WorkoutModel = require("../models/workout.model");
 
 const getAllWorkout = async (req, res) => {
-  const workouts = await WorkoutModel.find().sort({ createdAt: -1 }).exec();
+  const workouts = await WorkoutModel.find({ user_id: req.user._id })
+    .sort({ createdAt: -1 })
+    .exec();
   res.json(workouts);
 };
 
 const addWorkout = async (req, res) => {
   try {
-    const workout = new WorkoutModel(req.body);
+    const workout = new WorkoutModel({ ...req.body, user_id: req.user._id });
     await workout.save();
     res.status(201).json({ success: true, workout });
   } catch (err) {

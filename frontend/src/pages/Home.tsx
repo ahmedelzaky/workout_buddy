@@ -20,10 +20,13 @@ function Home() {
   return (
     <div className="home">
       <div className="workouts">
-        {workouts &&
+        {workouts && workouts.length > 0 ? (
           workouts.map((workout) => (
             <WorkoutsDetails key={workout._id} workout={workout} />
-          ))}
+          ))
+        ) : (
+          <div> get up and add some workout </div>
+        )}
       </div>
       <WorkoutForm />
       {error && <div className="error">{error}</div>}
