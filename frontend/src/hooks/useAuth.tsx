@@ -49,6 +49,7 @@ const useAuth = () => {
   const removeUser = () => {
     localStorage.removeItem("user");
     dispatch(logout());
+    navigate("/login");
   };
 
   return { auth, logout: removeUser, isPending, error };
